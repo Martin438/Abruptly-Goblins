@@ -20,7 +20,7 @@ def add_gamer(gamer, gamers_list):
 
 Next we want to add our first gamer! Her name is Kimberly Warner and she's available on Mondays, Tuesdays, and Fridays.
 
-Instructions
+Instructions.
 
 Create a dictionary called kimberly with the name and availability given above.
 Call add_gamer with kimberly as the first argument and gamers as the second.
