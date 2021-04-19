@@ -10,7 +10,8 @@ Now we want to create a function that will update this list and add a new gamer 
 "availability": a list of strings containing the names of the days of the week that the gamer is available. E.g., ["Monday", "Thursday", "Sunday"]
 Instructions
 
-Create a function called add_gamer that takes two parameters: gamer and gamers_list. The function should check that the argument passed to the gamer parameter has both "name" and a "availability" as keys and if so add gamer to gamers_list.
+Create a function called add_gamer that takes two parameters: gamer and gamers_list. The function should check that the argument passed to the gamer parameter has both "name"
+and a "availability" as keys and if so add gamer to gamers_list.
 
 def add_gamer(gamer, gamers_list):
     if gamer.get("name") and gamer.get("availability"):
@@ -46,11 +47,13 @@ add_gamer({'name':'Crystal Brewer','availability': ["Thursday", "Friday", "Satur
 add_gamer({'name':'James Barnes Jr.','availability': ["Tuesday", "Wednesday", "Thursday", "Sunday"]}, gamers)
 add_gamer({'name':'Michel Trujillo','availability': ["Monday", "Tuesday", "Wednesday"]}, gamers)
 
-Now that we have a list of all of the people interested in game night, we want to be able to calculate which nights would have the most participation. First we need to create a frequency table which correlates each day of the week with gamer availability.
+Now that we have a list of all of the people interested in game night, we want to be able to calculate which nights would have the most participation. First we need to create
+a frequency table which correlates each day of the week with gamer availability.
 
 Instructions
 
-Create a function called build_daily_frequency_table that takes no argument returns a dictionary with the days of the week as keys and 0s for values. We'll be using this to count the availability per night. Call build_daily_frequency_table and save the results to a variable called count_availability.
+Create a function called build_daily_frequency_table that takes no argument returns a dictionary with the days of the week as keys and 0s for values. We'll be using this
+to count the availability per night. Call build_daily_frequency_table and save the results to a variable called count_availability.
 
 def build_daily_frequency_table():
     return {
@@ -69,7 +72,9 @@ Next we need to count the number of people every night.
 
 Instructions
 
-Write a function called calculate_availability that takes a list of gamers as an argument gamers_list and a frequency table available_frequency. The function should iterate through each gamer in gamers_list and iterate through each day in the gamer's availability. For each day in the gamer's availability, add one to that date on the frequency table.
+Write a function called calculate_availability that takes a list of gamers as an argument gamers_list and a frequency table available_frequency. The function should iterate
+through each gamer in gamers_list and iterate through each day in the gamer's availability. For each day in the gamer's availability, add one to that date on the frequency
+table.
 
 def calculate_availability(gamers_list, available_frequency):
     for gamer in gamers_list:
@@ -123,14 +128,18 @@ def available_on_night(gamers_list, day):
 attending_game_night = available_on_night(gamers, game_night)
 ​
 print(attending_game_night)
-[{'name': 'Thomas Nelson', 'availability': ['Tuesday', 'Thursday', 'Saturday']}, {'name': 'Michelle Reyes', 'availability': ['Wednesday', 'Thursday', 'Sunday']}, {'name': 'Stephen Adams', 'availability': ['Thursday', 'Saturday']}, {'name': 'Joanne Lynn', 'availability': ['Monday', 'Thursday']}, {'name': 'Crystal Brewer', 'availability': ['Thursday', 'Friday', 'Saturday']}, {'name': 'James Barnes Jr.', 'availability': ['Tuesday', 'Wednesday', 'Thursday', 'Sunday']}]
+[{'name': 'Thomas Nelson', 'availability': ['Tuesday', 'Thursday', 'Saturday']}, {'name': 'Michelle Reyes', 'availability': ['Wednesday', 'Thursday', 'Sunday']},
+{'name': 'Stephen Adams', 'availability': ['Thursday', 'Saturday']}, {'name': 'Joanne Lynn', 'availability': ['Monday', 'Thursday']},
+{'name': 'Crystal Brewer', 'availability': ['Thursday', 'Friday', 'Saturday']}, {'name': 'James Barnes Jr.', 'availability': ['Tuesday', 'Wednesday', 'Thursday', 'Sunday']}]
 ​
 Generating an E-mail for the Participants
-With the best day for Abruptly Goblins! determined with computer precision, we need to let the attendees know that the game night is on a night they can attend. Let's start by creating a form email to send to each of the participants that we'll fill out with data later.
+With the best day for Abruptly Goblins! determined with computer precision, we need to let the attendees know that the game night is on a night they can attend.
+Let's start by creating a form email to send to each of the participants that we'll fill out with data later.
 
 Instructions
 
-Define a string, called form_email with interpolation variables {name}, {day_of_week}, and {game} (in case we decide we want to use this featureset to host a different game night). Use it to tell your gaming attendees the night their Abruptly Goblins! game can be played.
+Define a string, called form_email with interpolation variables {name}, {day_of_week}, and {game} (in case we decide we want to use this featureset to host
+a different game night). Use it to tell your gaming attendees the night their Abruptly Goblins! game can be played.
 
 form_email = """
 Dear {name},
@@ -142,7 +151,8 @@ the Sorcery Society
 """
 Instructions
 
-Create a function send_email with three parameters: gamers_who_can_attend, day, and game. Print form_email for each gamer in gamers_who_can_attend with the appropriate day and game. Call send_email with attending_game_night, game_night, and "Abruptly Goblins!".
+Create a function send_email with three parameters: gamers_who_can_attend, day, and game. Print form_email for each gamer in gamers_who_can_attend
+with the appropriate day and game. Call send_email with attending_game_night, game_night, and "Abruptly Goblins!".
 
 def send_email(gamers_who_can_attend, day, game):
     for gamer in gamers_who_can_attend:
